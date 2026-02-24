@@ -1,0 +1,19 @@
+{
+  "name": "package_remove",
+  "description": "Remove one or more system packages using dnf. Use when the user asks to uninstall, remove, or delete software packages. This is a destructive operation — the engine will request user confirmation before executing.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "packages": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "List of package names to remove."
+      }
+    },
+    "required": ["packages"]
+  },
+  "execution": {
+    "type": "shell",
+    "command_template": "sudo dnf remove -y {{packages | join(' ')}}"
+  }
+}

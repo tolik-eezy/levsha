@@ -1,0 +1,13 @@
+{
+  "name": "sys_cpu",
+  "description": "Show CPU information including model, core count, and architecture. Use when the user asks about the processor, CPU model, or number of cores.",
+  "input_schema": {
+    "type": "object",
+    "properties": {},
+    "required": []
+  },
+  "execution": {
+    "type": "shell",
+    "command_template": "lscpu"
+  }
+}

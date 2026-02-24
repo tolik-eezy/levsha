@@ -1,0 +1,27 @@
+name: self-improvement
+version: 0.2.0
+description: "Delegate source code editing to an external coding agent, then build, deploy, and rollback"
+author: levsha
+builtin: true
+
+prompt: prompts/self-improvement.md
+
+tools:
+  - tools/self_improve.json
+  - tools/deploy_build.json
+  - tools/rollback.json
+
+config:
+  agent_backend: claude-code
+  agent_binary: /usr/bin/claude
+  agent_timeout: 600
+
+requires:
+  packages:
+    - git
+    - rust
+    - gcc
+    - make
+    - claude-code
+
+assets: []

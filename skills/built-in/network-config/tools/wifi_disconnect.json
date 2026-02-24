@@ -1,0 +1,19 @@
+{
+  "name": "wifi_disconnect",
+  "description": "Disconnect from the current Wi-Fi network.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "interface": {
+        "type": "string",
+        "description": "Network interface to disconnect",
+        "default": "wlan0"
+      }
+    },
+    "required": []
+  },
+  "execution": {
+    "type": "shell",
+    "command_template": "nmcli device disconnect {{interface | quote()}}"
+  }
+}

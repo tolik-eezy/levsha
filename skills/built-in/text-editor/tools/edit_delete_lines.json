@@ -1,0 +1,23 @@
+{
+  "name": "edit_delete_lines",
+  "description": "Delete one or more lines from the open file.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "start_line": {
+        "type": "integer",
+        "description": "First line to delete (1-indexed)"
+      },
+      "count": {
+        "type": "integer",
+        "description": "Number of lines to delete",
+        "default": 1
+      }
+    },
+    "required": ["start_line"]
+  },
+  "execution": {
+    "type": "internal",
+    "function": "edit_delete_lines"
+  }
+}

@@ -1,0 +1,21 @@
+[package]
+name = "levsha-chat"
+version.workspace = true
+edition.workspace = true
+
+[[bin]]
+name = "levsha-chat"
+path = "src/main.rs"
+
+[dependencies]
+levsha-engine = { path = "../engine" }
+gtk4 = { version = "0.9", features = ["v4_12"] }
+glib = "0.20"
+gdk4 = "0.9"
+libadwaita = { version = "0.7", features = ["v1_4"] }
+tokio = { version = "1", features = ["full"] }
+tracing = "0.1"
+tracing-subscriber = "0.3"
+chrono = "0.4"
+base64 = "0.22"
+similar = "2"

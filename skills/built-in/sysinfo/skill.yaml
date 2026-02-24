@@ -1,0 +1,20 @@
+name: sysinfo
+version: 0.1.0
+description: "Query system information: disk, memory, CPU, uptime, network, processes"
+author: levsha
+builtin: true
+
+prompt: prompts/sysinfo.md
+
+tools:
+  - tools/disk_usage.json
+  - tools/memory.json
+  - tools/cpu_info.json
+  - tools/uptime.json
+  - tools/network.json
+  - tools/processes.json
+
+requires:
+  packages: []
+
+assets: []

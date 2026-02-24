@@ -1,0 +1,13 @@
+{
+  "name": "edit_save",
+  "description": "Save the current editor buffer to disk, overwriting the original file.",
+  "input_schema": {
+    "type": "object",
+    "properties": {},
+    "required": []
+  },
+  "execution": {
+    "type": "internal",
+    "function": "edit_save"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "net_dhcp",
+  "description": "Switch a network interface to DHCP (automatic) IP configuration. This is a destructive operation that may disconnect the user.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "interface": {
+        "type": "string",
+        "description": "Network interface name (e.g. eth0, wlan0)"
+      }
+    },
+    "required": ["interface"]
+  },
+  "execution": {
+    "type": "shell",
+    "command_template": "nmcli connection modify {{interface | quote()}} ipv4.method auto ipv4.addresses '' ipv4.gateway '' && nmcli connection up {{interface | quote()}}"
+  }
+}

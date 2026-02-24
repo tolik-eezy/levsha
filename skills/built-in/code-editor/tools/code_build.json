@@ -1,0 +1,24 @@
+{
+  "name": "code_build",
+  "description": "Build a code project using the specified build command.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "string",
+        "description": "Path to the project directory"
+      },
+      "command": {
+        "type": "string",
+        "description": "Build command (e.g. 'cargo build', 'npm run build', 'make')"
+      }
+    },
+    "required": ["path", "command"]
+  },
+  "execution": {
+    "type": "shell",
+    "command_template": "cd {{path | quote()}} && {{command}}",
+    "timeout_seconds": 120,
+    "streaming": true
+  }
+}

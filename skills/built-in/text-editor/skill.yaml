@@ -1,0 +1,25 @@
+name: text-editor
+version: 0.1.0
+description: "In-memory text editor with undo/redo for multi-step file editing"
+author: levsha
+builtin: true
+
+prompt: prompts/text-editor.md
+
+tools:
+  - tools/edit_open.json
+  - tools/edit_insert.json
+  - tools/edit_delete_lines.json
+  - tools/edit_replace_lines.json
+  - tools/edit_replace_text.json
+  - tools/edit_append.json
+  - tools/edit_save.json
+  - tools/edit_undo.json
+  - tools/edit_redo.json
+  - tools/edit_diff.json
+  - tools/edit_close.json
+
+requires:
+  packages: []
+
+assets: []

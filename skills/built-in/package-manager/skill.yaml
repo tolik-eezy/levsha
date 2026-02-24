@@ -1,0 +1,20 @@
+name: package-manager
+version: 0.1.0
+description: "Install, remove, update, and search system packages via dnf"
+author: levsha
+builtin: true
+
+prompt: prompts/package-manager.md
+
+tools:
+  - tools/install.json
+  - tools/remove.json
+  - tools/search.json
+  - tools/update.json
+  - tools/list.json
+
+requires:
+  packages:
+    - dnf
+
+assets: []

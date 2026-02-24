@@ -1,0 +1,12 @@
+{
+  "name": "skill_list",
+  "description": "List all installed skills (both built-in and user-installed).",
+  "input_schema": {
+    "type": "object",
+    "properties": {}
+  },
+  "execution": {
+    "type": "internal",
+    "function": "skill_list"
+  }
+}

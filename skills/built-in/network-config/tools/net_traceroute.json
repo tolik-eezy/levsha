@@ -1,0 +1,19 @@
+{
+  "name": "net_traceroute",
+  "description": "Trace the network route to a host, showing each hop.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "host": {
+        "type": "string",
+        "description": "Hostname or IP address to trace the route to"
+      }
+    },
+    "required": ["host"]
+  },
+  "execution": {
+    "type": "shell",
+    "command_template": "traceroute -m 20 {{host | quote()}}",
+    "timeout_seconds": 60
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "wifi_scan",
+  "description": "Scan for available Wi-Fi networks. Returns a list of visible networks with signal strength, security, and channel.",
+  "input_schema": {
+    "type": "object",
+    "properties": {},
+    "required": []
+  },
+  "execution": {
+    "type": "shell",
+    "command_template": "nmcli device wifi list --rescan yes"
+  }
+}

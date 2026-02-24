@@ -1,0 +1,24 @@
+{
+  "name": "git_add",
+  "description": "Stage files for the next git commit.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "string",
+        "description": "Path to the git repository",
+        "default": "."
+      },
+      "files": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "Files to stage for commit"
+      }
+    },
+    "required": ["files"]
+  },
+  "execution": {
+    "type": "shell",
+    "command_template": "cd {{path | quote()}} && git add {{files | join(' ')}}"
+  }
+}

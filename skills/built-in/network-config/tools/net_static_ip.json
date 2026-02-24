@@ -1,0 +1,26 @@
+{
+  "name": "net_static_ip",
+  "description": "Set a static IP address on a network interface. This is a destructive operation that may disconnect the user.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "interface": {
+        "type": "string",
+        "description": "Network interface name (e.g. eth0, wlan0)"
+      },
+      "ip_address": {
+        "type": "string",
+        "description": "IP address with CIDR notation (e.g. 192.168.1.100/24)"
+      },
+      "gateway": {
+        "type": "string",
+        "description": "Gateway IP address (e.g. 192.168.1.1)"
+      }
+    },
+    "required": ["interface", "ip_address", "gateway"]
+  },
+  "execution": {
+    "type": "shell",
+    "command_template": "nmcli connection modify {{interface | quote()}} ipv4.addresses {{ip_address | quote()}} ipv4.gateway {{gateway | quote()}} ipv4.method manual && nmcli connection up {{interface | quote()}}"
+  }
+}

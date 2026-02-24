@@ -1,0 +1,21 @@
+{
+  "name": "skill_install",
+  "description": "Install a new skill from the registry by name or from a Git URL. Use when the user wants to add new capabilities.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "description": "Name of the skill to install from the registry"
+      },
+      "url": {
+        "type": "string",
+        "description": "Git repository URL to install from directly"
+      }
+    }
+  },
+  "execution": {
+    "type": "internal",
+    "function": "skill_install"
+  }
+}

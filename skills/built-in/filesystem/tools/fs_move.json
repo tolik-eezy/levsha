@@ -1,0 +1,22 @@
+{
+  "name": "fs_move",
+  "description": "Move or rename a file or directory.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "source": {
+        "type": "string",
+        "description": "Current path of the file or directory"
+      },
+      "destination": {
+        "type": "string",
+        "description": "New path for the file or directory"
+      }
+    },
+    "required": ["source", "destination"]
+  },
+  "execution": {
+    "type": "shell",
+    "command_template": "mv {{source | quote}} {{destination | quote}}"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "code_run",
+  "description": "Run a code project using the specified run command.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "string",
+        "description": "Path to the project directory"
+      },
+      "command": {
+        "type": "string",
+        "description": "Run command (e.g. 'cargo run', 'node index.js', 'python main.py')"
+      },
+      "args": {
+        "type": "string",
+        "description": "Additional arguments to pass to the command"
+      }
+    },
+    "required": ["path", "command"]
+  },
+  "execution": {
+    "type": "shell",
+    "command_template": "cd {{path | quote()}} && {{command}} {{args}}",
+    "timeout_seconds": 60
+  }
+}

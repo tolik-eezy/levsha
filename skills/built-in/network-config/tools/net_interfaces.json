@@ -1,0 +1,13 @@
+{
+  "name": "net_interfaces",
+  "description": "Show network interfaces and their IP addresses.",
+  "input_schema": {
+    "type": "object",
+    "properties": {},
+    "required": []
+  },
+  "execution": {
+    "type": "shell",
+    "command_template": "nmcli device status && echo '---' && ip -br addr"
+  }
+}

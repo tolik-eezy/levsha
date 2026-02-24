@@ -1,0 +1,23 @@
+{
+  "name": "net_dns",
+  "description": "Set custom DNS servers for a network interface. This is a destructive operation that may affect name resolution.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "interface": {
+        "type": "string",
+        "description": "Network interface name (e.g. eth0, wlan0)"
+      },
+      "servers": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "List of DNS server addresses (e.g. [\"8.8.8.8\", \"1.1.1.1\"])"
+      }
+    },
+    "required": ["interface", "servers"]
+  },
+  "execution": {
+    "type": "shell",
+    "command_template": "nmcli connection modify {{interface | quote()}} ipv4.dns {{servers | join(',')}} && nmcli connection up {{interface | quote()}}"
+  }
+}

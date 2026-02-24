@@ -1,0 +1,26 @@
+{
+  "name": "fs_replace",
+  "description": "Find and replace text within a file. Replaces all occurrences of the pattern.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "string",
+        "description": "Path to the file"
+      },
+      "find": {
+        "type": "string",
+        "description": "Text pattern to find"
+      },
+      "replace": {
+        "type": "string",
+        "description": "Replacement text"
+      }
+    },
+    "required": ["path", "find", "replace"]
+  },
+  "execution": {
+    "type": "shell",
+    "command_template": "sed -i 's/{{find}}/{{replace}}/g' {{path | quote}}"
+  }
+}

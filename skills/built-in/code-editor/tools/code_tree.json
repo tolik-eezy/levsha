@@ -1,0 +1,24 @@
+{
+  "name": "code_tree",
+  "description": "Show the directory structure of a project, excluding common build artifacts.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "string",
+        "description": "Path to the directory",
+        "default": "."
+      },
+      "depth": {
+        "type": "integer",
+        "description": "Maximum directory depth to display",
+        "default": 3
+      }
+    },
+    "required": []
+  },
+  "execution": {
+    "type": "shell",
+    "command_template": "tree -L {{depth}} -I 'target|node_modules|.git|__pycache__|dist|build' {{path | quote()}}"
+  }
+}

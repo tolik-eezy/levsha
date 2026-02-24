@@ -1,0 +1,13 @@
+{
+  "name": "sys_memory",
+  "description": "Show memory and swap usage. Use when the user asks about RAM, memory, or swap usage.",
+  "input_schema": {
+    "type": "object",
+    "properties": {},
+    "required": []
+  },
+  "execution": {
+    "type": "shell",
+    "command_template": "free -h"
+  }
+}

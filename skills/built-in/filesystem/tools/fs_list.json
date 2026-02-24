@@ -1,0 +1,24 @@
+{
+  "name": "fs_list",
+  "description": "List files and directories with details. Shows permissions, size, owner, and modification date.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "string",
+        "description": "Directory path to list (default: current directory)",
+        "default": "."
+      },
+      "all": {
+        "type": "boolean",
+        "description": "Include hidden files (starting with .)",
+        "default": false
+      }
+    },
+    "required": []
+  },
+  "execution": {
+    "type": "shell",
+    "command_template": "ls -la --color=never {{path | quote}}"
+  }
+}

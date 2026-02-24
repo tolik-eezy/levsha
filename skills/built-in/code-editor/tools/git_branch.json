@@ -1,0 +1,23 @@
+{
+  "name": "git_branch",
+  "description": "List, create, or delete git branches.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "string",
+        "description": "Path to the git repository",
+        "default": "."
+      },
+      "args": {
+        "type": "string",
+        "description": "Branch arguments (e.g. branch name to create, or '-d <name>' to delete)"
+      }
+    },
+    "required": []
+  },
+  "execution": {
+    "type": "shell",
+    "command_template": "cd {{path | quote()}} && git branch {{args}}"
+  }
+}

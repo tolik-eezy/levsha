@@ -1,0 +1,28 @@
+{
+  "name": "code_test",
+  "description": "Run tests for a code project using the specified test command.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "string",
+        "description": "Path to the project directory"
+      },
+      "command": {
+        "type": "string",
+        "description": "Test command (e.g. 'cargo test', 'npm test', 'pytest')"
+      },
+      "filter": {
+        "type": "string",
+        "description": "Test filter pattern to run specific tests"
+      }
+    },
+    "required": ["path", "command"]
+  },
+  "execution": {
+    "type": "shell",
+    "command_template": "cd {{path | quote()}} && {{command}} {{filter}}",
+    "timeout_seconds": 120,
+    "streaming": true
+  }
+}

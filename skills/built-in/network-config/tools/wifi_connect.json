@@ -1,0 +1,22 @@
+{
+  "name": "wifi_connect",
+  "description": "Connect to a Wi-Fi network using its SSID and password.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "ssid": {
+        "type": "string",
+        "description": "The SSID (name) of the Wi-Fi network to connect to"
+      },
+      "password": {
+        "type": "string",
+        "description": "The Wi-Fi network password"
+      }
+    },
+    "required": ["ssid", "password"]
+  },
+  "execution": {
+    "type": "shell",
+    "command_template": "nmcli device wifi connect {{ssid | quote()}} password {{password | quote()}}"
+  }
+}

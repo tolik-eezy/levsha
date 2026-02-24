@@ -1,0 +1,19 @@
+{
+  "name": "package_install",
+  "description": "Install one or more system packages using dnf. Use when the user asks to install, add, or get software packages.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "packages": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "List of package names to install."
+      }
+    },
+    "required": ["packages"]
+  },
+  "execution": {
+    "type": "shell",
+    "command_template": "sudo dnf install -y {{packages | join(' ')}}"
+  }
+}

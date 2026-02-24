@@ -1,0 +1,13 @@
+{
+  "name": "edit_diff",
+  "description": "Show a unified diff of changes since the last save in the text editor.",
+  "input_schema": {
+    "type": "object",
+    "properties": {},
+    "required": []
+  },
+  "execution": {
+    "type": "internal",
+    "function": "edit_diff"
+  }
+}

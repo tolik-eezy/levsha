@@ -1,0 +1,48 @@
+[api]
+key = "YOUR_ANTHROPIC_API_KEY_HERE"
+model = "claude-sonnet-4-20250514"
+base_url = "https://api.anthropic.com"
+timeout_seconds = 30
+max_retries = 3
+
+[context]
+max_tokens = 200000
+response_reserve = 4096
+chars_per_token = 4
+
+[execution]
+command_timeout_seconds = 60
+
+[skills]
+path = "/usr/share/levsha/skills"
+registry_url = "https://github.com/nicholasgasior/levsha-skills-registry.git"
+installed_path = "/var/lib/levsha/skills"
+cache_path = "/var/cache/levsha/registry"
+
+[persistence]
+db_path = "/var/lib/levsha/history.db"
+
+[local_model]
+enabled = true
+server_binary = "/usr/bin/llama-server"
+model_path = "/var/lib/levsha/models/llama-3-8b-q4.gguf"
+models_dir = "/var/lib/levsha/models"
+port = 8080
+context_size = 4096
+gpu_layers = 0
+
+[routing]
+mode = "auto"
+
+[self_improve]
+source_root = "/usr/src/levsha"
+checkpoint_dir = "/var/lib/levsha/checkpoints"
+max_checkpoints = 10
+agent_backend = "claude-code"
+agent_binary = "/usr/local/bin/claude"
+agent_timeout = 600
+
+[sessions]
+max_active = 20
+auto_name = true
+default_name = "New Session"

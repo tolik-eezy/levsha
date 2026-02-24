@@ -1,0 +1,13 @@
+{
+  "name": "edit_undo",
+  "description": "Undo the last editing operation in the text editor.",
+  "input_schema": {
+    "type": "object",
+    "properties": {},
+    "required": []
+  },
+  "execution": {
+    "type": "internal",
+    "function": "edit_undo"
+  }
+}

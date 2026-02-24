@@ -1,0 +1,97 @@
+# Levsha OS — Plymouth Boot Splash
+# Minimal warm aesthetic: dark background, copper accents
+
+# ── Background ──
+# Dark warm brown (#1A1612 = rgb 26/255, 22/255, 18/255)
+Window.SetBackgroundTopColor(0.102, 0.086, 0.071);
+Window.SetBackgroundBottomColor(0.102, 0.086, 0.071);
+
+# ── Logo text: diamond + OS name ──
+logo_image = Image.Text("◆  Levsha OS", 0.776, 0.478, 0.322, 1, "IBM Plex Sans 28");
+logo_sprite = Sprite(logo_image);
+logo_sprite.SetX(Window.GetWidth() / 2 - logo_image.GetWidth() / 2);
+logo_sprite.SetY(Window.GetHeight() / 2 - 60);
+logo_sprite.SetZ(10);
+
+# ── Progress bar ──
+# Bar dimensions
+bar_width = 240;
+bar_height = 4;
+bar_y_offset = 40;
+
+# Background track (subtle)
+bar_bg = Image(bar_width, bar_height);
+bar_bg.Clear(0.200, 0.180, 0.160, 0.4);
+bar_bg_sprite = Sprite(bar_bg);
+bar_bg_sprite.SetX(Window.GetWidth() / 2 - bar_width / 2);
+bar_bg_sprite.SetY(Window.GetHeight() / 2 + bar_y_offset);
+bar_bg_sprite.SetZ(5);
+
+# Filled portion (copper #C67A52)
+progress_value = 0;
+
+fun refresh_callback() {
+    # Smooth animation: gently pulse the progress fill opacity
+    global.tick = global.tick + 1;
+
+    # Pulsing copper dot as a subtle life indicator
+    pulse = Math.Abs(Math.Sin(global.tick * 0.04));
+    opacity = 0.4 + pulse * 0.6;
+
+    dot_image = Image.Text("●", 0.776 * opacity + 0.102 * (1 - opacity),
+                                  0.478 * opacity + 0.086 * (1 - opacity),
+                                  0.322 * opacity + 0.071 * (1 - opacity),
+                                  1, "IBM Plex Sans 14");
+
+    if (global.dot_sprite) {
+        global.dot_sprite.SetImage(dot_image);
+    } else {
+        global.dot_sprite = Sprite(dot_image);
+        global.dot_sprite.SetZ(10);
+    }
+    global.dot_sprite.SetX(Window.GetWidth() / 2 - dot_image.GetWidth() / 2);
+    global.dot_sprite.SetY(Window.GetHeight() / 2 + bar_y_offset + 20);
+}
+
+Plymouth.SetRefreshFunction(refresh_callback);
+
+# ── Boot progress ──
+fun boot_progress_callback(duration, progress) {
+    # Draw filled bar proportional to progress
+    fill_w = Math.Int(bar_width * progress);
+    if (fill_w < 1) fill_w = 1;
+
+    bar_fill = Image(fill_w, bar_height);
+    bar_fill.Clear(0.776, 0.478, 0.322, 1.0);
+
+    if (global.bar_fill_sprite) {
+        global.bar_fill_sprite.SetImage(bar_fill);
+    } else {
+        global.bar_fill_sprite = Sprite(bar_fill);
+        global.bar_fill_sprite.SetZ(6);
+    }
+
+    global.bar_fill_sprite.SetX(Window.GetWidth() / 2 - bar_width / 2);
+    global.bar_fill_sprite.SetY(Window.GetHeight() / 2 + bar_y_offset);
+}
+
+Plymouth.SetBootProgressFunction(boot_progress_callback);
+
+# ── Message handling (hide verbose boot messages) ──
+message_sprite = Sprite();
+message_sprite.SetPosition(10, Window.GetHeight() - 30, 1);
+
+fun message_callback(text) {
+    # Show messages in small subtle text at the bottom
+    msg_image = Image.Text(text, 0.400, 0.360, 0.320, 1, "IBM Plex Sans 11");
+    message_sprite.SetImage(msg_image);
+}
+
+Plymouth.SetMessageFunction(message_callback);
+
+# ── Quit transition ──
+fun quit_callback() {
+    # Fade out is handled by Plymouth engine
+}
+
+Plymouth.SetQuitFunction(quit_callback);

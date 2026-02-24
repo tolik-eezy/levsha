@@ -1,0 +1,22 @@
+{
+  "name": "fs_write",
+  "description": "Write content to a file. If the file exists, requires user confirmation before overwriting.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "string",
+        "description": "Path to the file to write"
+      },
+      "content": {
+        "type": "string",
+        "description": "The content to write to the file"
+      }
+    },
+    "required": ["path", "content"]
+  },
+  "execution": {
+    "type": "internal",
+    "function": "fs_write"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "fs_head",
+  "description": "Show the first N lines of a file. Useful for quickly checking file headers or configuration.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "string",
+        "description": "Path to the file"
+      },
+      "lines": {
+        "type": "integer",
+        "description": "Number of lines to show from the beginning (default: 20)",
+        "default": 20
+      }
+    },
+    "required": ["path"]
+  },
+  "execution": {
+    "type": "shell",
+    "command_template": "head -n {{lines}} {{path | quote}}"
+  }
+}

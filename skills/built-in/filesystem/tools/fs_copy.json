@@ -1,0 +1,22 @@
+{
+  "name": "fs_copy",
+  "description": "Copy a file or directory to a new location. Copies recursively for directories.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "source": {
+        "type": "string",
+        "description": "Path to the file or directory to copy"
+      },
+      "destination": {
+        "type": "string",
+        "description": "Destination path"
+      }
+    },
+    "required": ["source", "destination"]
+  },
+  "execution": {
+    "type": "shell",
+    "command_template": "cp -r {{source | quote}} {{destination | quote}}"
+  }
+}

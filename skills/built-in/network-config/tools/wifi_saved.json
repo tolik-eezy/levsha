@@ -1,0 +1,13 @@
+{
+  "name": "wifi_saved",
+  "description": "List saved Wi-Fi networks the system remembers.",
+  "input_schema": {
+    "type": "object",
+    "properties": {},
+    "required": []
+  },
+  "execution": {
+    "type": "shell",
+    "command_template": "nmcli connection show | grep wireless"
+  }
+}

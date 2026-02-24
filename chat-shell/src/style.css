@@ -1,0 +1,1249 @@
+/* Levsha OS — Chat Shell Theme
+ * Warm parchment + copper. Light theme only.
+ * All colors from theme.design.md */
+
+/* ── Global Reset ── */
+window, window.background {
+    background-color: #FBF8F3;
+    color: #3A3228;
+}
+
+/* ── Typography ── */
+* {
+    font-family: "IBM Plex Sans", "Noto Sans", system-ui, sans-serif;
+    -gtk-dpi: 96;
+}
+
+/* ── Main Window ── */
+.main-box {
+    background-color: #FBF8F3;
+}
+
+/* ── Chat View (scrollable area) ── */
+.chat-scroll {
+    background-color: #FBF8F3;
+}
+
+.chat-scroll undershoot.top,
+.chat-scroll undershoot.bottom,
+.chat-scroll overshoot.top,
+.chat-scroll overshoot.bottom {
+    background: none;
+}
+
+.chat-scroll scrollbar {
+    background-color: transparent;
+}
+
+.chat-scroll scrollbar slider {
+    background-color: alpha(#A89B8C, 0.3);
+    border-radius: 99px;
+    min-width: 6px;
+    min-height: 40px;
+}
+
+.chat-scroll scrollbar slider:hover {
+    background-color: alpha(#A89B8C, 0.5);
+}
+
+.message-list {
+    background-color: #FBF8F3;
+    padding: 32px 32px 16px 32px;
+}
+
+/* ── Message Bubbles ── */
+.message-row {
+    padding: 0px;
+    margin-bottom: 16px;
+}
+
+.message-bubble {
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.message-bubble-assistant {
+    background-color: #FDFBF7;
+    border: 1px solid #EBE6DC;
+    box-shadow: 0 1px 3px alpha(#3A3228, 0.04);
+}
+
+.message-bubble-user {
+    background-color: #F5F1EA;
+}
+
+.message-bubble-system {
+    background-color: #FDFBF7;
+    border: 1px solid #EBE6DC;
+    box-shadow: 0 1px 3px alpha(#3A3228, 0.04);
+}
+
+.message-bubble-error {
+    background-color: #FBF2ED;
+    border: 1px solid #C67A52;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+/* ── Message Text ── */
+.message-text {
+    color: #3A3228;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.message-text-bold {
+    font-weight: 700;
+}
+
+.message-text-italic {
+    font-style: italic;
+}
+
+.message-text-code-inline {
+    font-family: "IBM Plex Mono", "Noto Sans Mono", monospace;
+    font-size: 14px;
+    background-color: #F7F4EE;
+    border-radius: 4px;
+    padding: 1px 4px;
+    color: #4A3F35;
+}
+
+/* ── Code Blocks ── */
+.code-block {
+    background-color: #F7F4EE;
+    border: 1px solid #EBE6DC;
+    border-radius: 6px;
+    padding: 16px;
+    font-family: "IBM Plex Mono", "Noto Sans Mono", monospace;
+    font-size: 14px;
+    color: #4A3F35;
+}
+
+.code-block-header {
+    color: #A89B8C;
+    font-size: 12px;
+    font-weight: 500;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #EBE6DC;
+}
+
+.code-block-text {
+    font-family: "IBM Plex Mono", "Noto Sans Mono", monospace;
+    font-size: 14px;
+    color: #4A3F35;
+}
+
+/* ── Role Labels ── */
+.role-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #6B5D4F;
+    margin-bottom: 4px;
+}
+
+.role-label-assistant {
+    color: #C67A52;
+}
+
+/* ── Markdown Tables ── */
+.markdown-table {
+    border: 1px solid #EBE6DC;
+    border-radius: 6px;
+    background-color: #FDFBF7;
+}
+
+.markdown-table-header {
+    background-color: #F5F1EA;
+    border-bottom: 2px solid #EBE6DC;
+    border-radius: 6px 6px 0 0;
+}
+
+.markdown-table-header-cell {
+    font-weight: 700;
+    color: #3A3228;
+}
+
+.markdown-table-cell {
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #3A3228;
+    border-right: 1px solid #EBE6DC;
+}
+
+.markdown-table-cell:last-child {
+    border-right: none;
+}
+
+.markdown-table-row {
+    border-bottom: 1px solid #EBE6DC;
+}
+
+.markdown-table-row:last-child {
+    border-bottom: none;
+}
+
+.markdown-table-row-alt {
+    background-color: #FAF7F2;
+}
+
+/* ── Markdown Lists ── */
+.markdown-list {
+    padding: 4px 0px;
+}
+
+.markdown-list-item {
+    padding: 2px 0px;
+}
+
+.markdown-list-bullet {
+    color: #C67A52;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+/* ── Typing Indicator ── */
+.typing-indicator {
+    padding: 16px;
+}
+
+.typing-dot {
+    color: #C67A52;
+    font-size: 18px;
+    font-weight: 700;
+    animation: typing-pulse 1.4s ease-in-out infinite;
+}
+
+.typing-dot:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.typing-dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typing-pulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1.0; }
+}
+
+/* ── Input Bar ── */
+.input-area {
+    background-color: #FBF8F3;
+    padding: 0px 32px 24px 32px;
+}
+
+.input-frame {
+    background-color: #F5F1EA;
+    border: 1px solid #EBE6DC;
+    border-radius: 12px;
+    padding: 12px 16px;
+    transition: border-color 150ms ease-out;
+}
+
+.input-frame:focus-within {
+    border-color: #C67A52;
+}
+
+.input-text text {
+    background-color: transparent;
+    color: #3A3228;
+    font-size: 15px;
+    caret-color: #C67A52;
+}
+
+.input-text {
+    background-color: transparent;
+    color: #3A3228;
+    font-size: 15px;
+    caret-color: #C67A52;
+}
+
+.input-text text selection {
+    background-color: alpha(#C67A52, 0.2);
+    color: #3A3228;
+}
+
+.input-placeholder {
+    color: #A89B8C;
+    font-size: 15px;
+}
+
+.send-button {
+    background-color: transparent;
+    color: #C67A52;
+    border: none;
+    border-radius: 6px;
+    padding: 4px 8px;
+    font-weight: 500;
+    min-width: 32px;
+    min-height: 32px;
+}
+
+.send-button:hover {
+    background-color: alpha(#C67A52, 0.1);
+}
+
+.send-button:disabled {
+    color: #A89B8C;
+}
+
+/* ── Status Bar ── */
+.status-bar {
+    background-color: #F5F1EA;
+    border-top: 1px solid #EBE6DC;
+    min-height: 32px;
+    padding: 0px 16px;
+}
+
+.status-bar label {
+    color: #6B5D4F;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.status-separator {
+    color: #A89B8C;
+    font-size: 13px;
+}
+
+.status-connected {
+    color: #62B37B;
+}
+
+.status-disconnected {
+    color: #C67A52;
+}
+
+/* ── Error Display ── */
+.error-widget {
+    background-color: #FBF2ED;
+    border: 1px solid #C67A52;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.error-icon {
+    color: #C67A52;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.error-message {
+    color: #3A3228;
+    font-size: 15px;
+}
+
+.retry-button {
+    background-color: #C67A52;
+    color: #FAF8F4;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-weight: 500;
+    font-size: 14px;
+    border: none;
+}
+
+.retry-button:hover {
+    background-color: #B56B45;
+}
+
+/* ── Destructive Command Confirmation ── */
+.confirm-widget {
+    background-color: #FDF5F0;
+    border: 2px solid #C67A52;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.confirm-title {
+    color: #7A4A35;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.confirm-command {
+    font-family: "IBM Plex Mono", "Noto Sans Mono", monospace;
+    font-size: 14px;
+    color: #4A3F35;
+    background-color: #F7F4EE;
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin: 8px 0;
+}
+
+.confirm-description {
+    color: #3A3228;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.confirm-approve {
+    background-color: #C67A52;
+    color: #FAF8F4;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-weight: 500;
+    border: none;
+}
+
+.confirm-approve:hover {
+    background-color: #B56B45;
+}
+
+.confirm-deny {
+    background-color: #F5F1EA;
+    color: #3A3228;
+    border: 1px solid #EBE6DC;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-weight: 500;
+}
+
+.confirm-deny:hover {
+    background-color: #EBE6DC;
+}
+
+/* ── Tool Status ── */
+.tool-status {
+    padding: 4px 0px;
+    color: #6B5D4F;
+    font-size: 13px;
+}
+
+.tool-status-icon {
+    font-size: 13px;
+}
+
+.tool-status-started {
+    color: #6B5D4F;
+}
+
+.tool-status-success {
+    color: #62B37B;
+}
+
+.tool-status-failure {
+    color: #C67A52;
+}
+
+/* ── Scroll-to-Bottom Button ── */
+.scroll-to-bottom {
+    background-color: #FDFBF7;
+    border: 1px solid #EBE6DC;
+    border-radius: 99px;
+    box-shadow: 0 2px 8px alpha(#3A3228, 0.08);
+    padding: 8px 16px;
+    color: #6B5D4F;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.scroll-to-bottom:hover {
+    background-color: #F5F1EA;
+    color: #3A3228;
+}
+
+/* ── Welcome Message ── */
+.welcome-title {
+    color: #3A3228;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.welcome-diamond {
+    color: #C67A52;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+/* ── Message Appear Animation ── */
+@keyframes message-appear {
+    from {
+        opacity: 0;
+        /* translate not supported in GTK4 CSS — using margin-top workaround */
+        margin-top: 8px;
+    }
+    to {
+        opacity: 1;
+        margin-top: 0px;
+    }
+}
+
+.message-appear {
+    animation: message-appear 200ms ease-out;
+}
+
+/* ── Input disabled state ── */
+.input-disabled {
+    opacity: 0.6;
+}
+
+/* ── Search Overlay ── */
+.search-overlay {
+    background-color: #F5F1EA;
+    border-bottom: 1px solid #EBE6DC;
+    padding: 8px 16px;
+}
+
+.search-entry {
+    background-color: #FDFBF7;
+    color: #3A3228;
+    border: 1px solid #EBE6DC;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 14px;
+    caret-color: #C67A52;
+}
+
+.search-entry:focus {
+    border-color: #C67A52;
+}
+
+.search-entry text {
+    background-color: transparent;
+}
+
+.search-entry text selection {
+    background-color: alpha(#C67A52, 0.2);
+    color: #3A3228;
+}
+
+.search-count {
+    color: #6B5D4F;
+    font-size: 13px;
+    min-width: 80px;
+}
+
+.search-nav-button {
+    background-color: transparent;
+    color: #6B5D4F;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    min-width: 28px;
+    min-height: 28px;
+    font-size: 12px;
+}
+
+.search-nav-button:hover {
+    background-color: alpha(#C67A52, 0.1);
+    color: #3A3228;
+}
+
+/* ── Search Match Highlight ── */
+.search-match-highlight {
+    background-color: alpha(#C67A52, 0.08);
+    border-left: 3px solid #C67A52;
+}
+
+/* ── First Boot Screen ── */
+.first-boot-screen {
+    background-color: #FBF8F3;
+}
+
+.first-boot-content {
+    padding: 32px;
+}
+
+.first-boot-logo {
+    margin-bottom: 24px;
+}
+
+.first-boot-title {
+    color: #3A3228;
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.first-boot-description {
+    color: #6B5D4F;
+    font-size: 15px;
+    margin-bottom: 24px;
+}
+
+.first-boot-url {
+    color: #C67A52;
+    font-size: 14px;
+    margin-bottom: 32px;
+}
+
+.first-boot-status {
+    color: #6B5D4F;
+    font-size: 14px;
+    margin-top: 16px;
+}
+
+.first-boot-success {
+    color: #62B37B;
+}
+
+.first-boot-error {
+    background-color: alpha(#C67A52, 0.06);
+    border-radius: 6px;
+    padding: 8px 12px;
+}
+
+.first-boot-error-text {
+    color: #C67A52;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.key-input-container {
+    margin-bottom: 8px;
+}
+
+.key-input-entry {
+    background-color: #F5F1EA;
+    border: 1px solid #EBE6DC;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 15px;
+    color: #3A3228;
+    caret-color: #C67A52;
+    min-width: 360px;
+}
+
+.key-input-entry:focus {
+    border-color: #C67A52;
+}
+
+.first-boot-submit {
+    background-color: #C67A52;
+    color: #FDFBF7;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 32px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.first-boot-submit:hover {
+    background-color: #B56A42;
+}
+
+.first-boot-submit:active {
+    background-color: #A55A32;
+}
+
+.key-change-card {
+    background-color: #FDFBF7;
+    border: 1px solid #EBE6DC;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+/* ── Content Panel ── */
+.content-panel {
+    background-color: #FBF8F3;
+    border-left: 1px solid #EBE6DC;
+    min-width: 300px;
+}
+
+.content-panel-header {
+    background-color: #F5F1EA;
+    border-bottom: 1px solid #EBE6DC;
+    padding: 8px 16px;
+    min-height: 40px;
+}
+
+.content-panel-title {
+    color: #3A3228;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.content-panel-close {
+    background-color: transparent;
+    color: #6B5D4F;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    min-width: 28px;
+    min-height: 28px;
+}
+
+.content-panel-close:hover {
+    background-color: alpha(#C67A52, 0.1);
+    color: #3A3228;
+}
+
+/* ── Paned Handle ── */
+.main-paned > separator {
+    background-color: #EBE6DC;
+    min-width: 4px;
+}
+
+.main-paned > separator:hover {
+    background-color: #C67A52;
+}
+
+/* ── Text Renderer ── */
+.text-renderer {
+    background-color: #FBF8F3;
+}
+
+.text-line-numbers {
+    background-color: #F5F1EA;
+    padding: 8px 4px;
+    border-right: 1px solid #EBE6DC;
+}
+
+.line-number {
+    color: #A89B8C;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 13px;
+    min-width: 40px;
+}
+
+.text-code-content {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 14px;
+    color: #4A3F35;
+    padding: 8px 16px;
+}
+
+/* ── Image Renderer ── */
+.image-renderer {
+    background-color: #F7F4EE;
+}
+
+.image-zoom-bar {
+    background-color: #F5F1EA;
+    border-top: 1px solid #EBE6DC;
+    padding: 4px 8px;
+}
+
+.image-zoom-button {
+    background-color: transparent;
+    color: #6B5D4F;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 13px;
+}
+
+.image-zoom-button:hover {
+    background-color: alpha(#C67A52, 0.1);
+}
+
+/* ── Diff Renderer ── */
+.diff-renderer {
+    background-color: #FBF8F3;
+}
+
+.diff-stats {
+    color: #6B5D4F;
+    font-size: 13px;
+    padding: 8px 16px;
+    border-bottom: 1px solid #EBE6DC;
+}
+
+.diff-line {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 14px;
+    padding: 1px 16px;
+}
+
+.diff-line-add {
+    background-color: alpha(#62B37B, 0.12);
+    color: #3A5A3A;
+}
+
+.diff-line-remove {
+    background-color: alpha(#C67A52, 0.12);
+    color: #7A4A35;
+}
+
+.diff-line-context {
+    color: #4A3F35;
+}
+
+.diff-line-number {
+    color: #A89B8C;
+    font-size: 13px;
+    min-width: 40px;
+}
+
+.diff-prefix {
+    color: #6B5D4F;
+    font-weight: 600;
+    min-width: 20px;
+}
+
+/* ── Progress Renderer ── */
+.progress-renderer {
+    padding: 24px 16px;
+}
+
+.progress-operation {
+    color: #3A3228;
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+
+.progress-bar trough {
+    background-color: #EBE6DC;
+    border-radius: 4px;
+    min-height: 8px;
+}
+
+.progress-bar progress {
+    background-color: #C67A52;
+    border-radius: 4px;
+}
+
+.progress-message {
+    color: #6B5D4F;
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+/* ── Session List Overlay ── */
+.session-overlay-backdrop {
+    background-color: alpha(#000000, 0.3);
+}
+
+.session-overlay-card {
+    background-color: #FDFBF7;
+    border: 1px solid #EBE6DC;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px alpha(#3A3228, 0.12);
+    min-width: 400px;
+    padding: 0px;
+}
+
+.session-overlay-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid #EBE6DC;
+}
+
+.session-overlay-title {
+    color: #3A3228;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.session-overlay-new-btn {
+    background-color: transparent;
+    color: #C67A52;
+    border: none;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 4px 12px;
+    border-radius: 6px;
+}
+
+.session-overlay-new-btn:hover {
+    background-color: alpha(#C67A52, 0.1);
+}
+
+.session-list {
+    background-color: transparent;
+}
+
+.session-row {
+    padding: 12px 20px;
+    border-bottom: 1px solid #F5F1EA;
+}
+
+.session-row:hover {
+    background-color: #F5F1EA;
+}
+
+.session-row:last-child {
+    border-bottom: none;
+}
+
+.session-row-active {
+    border-left: 3px solid #C67A52;
+}
+
+.session-indicator-active {
+    color: #C67A52;
+    font-size: 10px;
+}
+
+.session-indicator-inactive {
+    color: #A89B8C;
+    font-size: 10px;
+}
+
+.session-name {
+    color: #3A3228;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.session-name-active {
+    font-weight: 700;
+}
+
+.session-preview {
+    color: #A89B8C;
+    font-size: 12px;
+    font-style: italic;
+}
+
+.session-time {
+    color: #A89B8C;
+    font-size: 12px;
+}
+
+.session-status-label {
+    color: #6B5D4F;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* ── Avatar ── */
+.avatar-circle {
+    border-radius: 99px;
+    border: none;
+    background: transparent;
+    padding: 0;
+    min-width: 0;
+    min-height: 0;
+}
+
+/* ── Boot Splash ── */
+.boot-splash {
+    background: #FBF8F3;
+}
+
+.boot-splash-logo {
+    border-radius: 99px;
+    border: none;
+    background: transparent;
+    padding: 0;
+}
+
+.boot-splash-title {
+    color: #3A3228;
+    font-size: 32px;
+    font-weight: 500;
+}
+
+.boot-splash-dot {
+    color: #C67A52;
+    font-size: 24px;
+    font-weight: 700;
+    animation: typing-pulse 1.4s ease-in-out infinite;
+}
+
+.boot-splash-dot:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.boot-splash-dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.boot-splash-dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+/* ── Welcome Card ── */
+.welcome-card {
+    background: #FDFBF7;
+    border: 1px solid #EBE6DC;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.welcome-banner {
+    border-radius: 6px;
+    border: none;
+    background: transparent;
+    padding: 0;
+    overflow: hidden;
+    min-height: 280px;
+}
+
+/* ── Confirm Shield Icon ── */
+.confirm-shield-icon {
+    color: #C67A52;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+/* ── Status Bar Icons ── */
+.status-icon {
+    font-size: 10px;
+    margin-right: 4px;
+}
+
+/* ── Code Block Terminal Icon ── */
+.code-block-terminal-icon {
+    color: #A89B8C;
+    font-size: 11px;
+    font-family: "IBM Plex Mono", monospace;
+}
+
+/* ── Agent Activity Renderer ── */
+.agent-activity-renderer {
+    background-color: #FBF8F3;
+}
+
+.agent-activity-entry {
+    padding: 10px 16px;
+}
+
+.agent-event-prefix {
+    font-size: 13px;
+    font-weight: 600;
+    color: #6B5D4F;
+}
+
+.agent-event-path {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 13px;
+    color: #C67A52;
+}
+
+.agent-event-code {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    color: #4A3F35;
+    background-color: #F7F4EE;
+    border-radius: 4px;
+    padding: 4px 8px;
+}
+
+.agent-event-added {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    color: #62B37B;
+    background-color: alpha(#62B37B, 0.08);
+    border-radius: 4px;
+    padding: 4px 8px;
+}
+
+.agent-event-thinking-text {
+    font-size: 13px;
+    font-style: italic;
+    color: #A89B8C;
+}
+
+.agent-event-complete {
+    font-size: 13px;
+    font-weight: 600;
+    color: #62B37B;
+}
+
+.agent-event-error {
+    font-size: 13px;
+    font-weight: 600;
+    color: #C67A52;
+}
+
+.agent-event-separator {
+    margin: 0px 16px;
+    min-height: 1px;
+    background: none;
+    border-bottom: 1px dashed #EBE6DC;
+}
+
+/* ── Session Sidebar (Module 26) ── */
+.sidebar-container {
+    background-color: #F5F1EA;
+    border-right: 1px solid #EBE6DC;
+    min-width: 260px;
+    max-width: 260px;
+}
+
+.sidebar-header {
+    padding: 12px 16px;
+    border-bottom: 1px solid #EBE6DC;
+    min-height: 48px;
+}
+
+.sidebar-title {
+    color: #3A3228;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.sidebar-close-btn {
+    background-color: transparent;
+    color: #6B5D4F;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    min-width: 28px;
+    min-height: 28px;
+    -gtk-icon-size: 16px;
+}
+
+.sidebar-close-btn:hover {
+    background-color: alpha(#C67A52, 0.1);
+    color: #3A3228;
+}
+
+.sidebar-list {
+    background-color: transparent;
+}
+
+.sidebar-row {
+    padding: 10px 16px;
+    border-bottom: 1px solid alpha(#EBE6DC, 0.5);
+    border-left: 3px solid transparent;
+}
+
+.sidebar-row:hover {
+    background-color: alpha(#EBE6DC, 0.5);
+}
+
+.sidebar-row:last-child {
+    border-bottom: none;
+}
+
+.sidebar-row-active {
+    border-left: 3px solid #C67A52;
+    background-color: alpha(#C67A52, 0.06);
+}
+
+.sidebar-session-name {
+    color: #3A3228;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.sidebar-session-name-active {
+    font-weight: 700;
+    color: #C67A52;
+}
+
+.sidebar-session-time {
+    color: #A89B8C;
+    font-size: 11px;
+}
+
+.sidebar-new-session-btn {
+    background-color: transparent;
+    color: #C67A52;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 16px;
+    font-weight: 500;
+    font-size: 14px;
+    margin: 4px 8px;
+}
+
+.sidebar-new-session-btn:hover {
+    background-color: alpha(#C67A52, 0.1);
+}
+
+.sidebar-separator {
+    margin: 0px 16px;
+    min-height: 1px;
+    background-color: #EBE6DC;
+}
+
+.sidebar-bottom-zone {
+    padding: 8px 0px;
+}
+
+.sidebar-action-row {
+    padding: 8px 16px;
+    color: #6B5D4F;
+    font-size: 13px;
+}
+
+.sidebar-action-row:hover {
+    background-color: alpha(#EBE6DC, 0.5);
+}
+
+.sidebar-action-icon {
+    color: #A89B8C;
+    -gtk-icon-size: 16px;
+    min-width: 24px;
+}
+
+.sidebar-action-label {
+    color: #6B5D4F;
+    font-size: 13px;
+}
+
+.sidebar-power-row:hover {
+    background-color: alpha(#C67A52, 0.08);
+}
+
+.sidebar-shutdown-confirm {
+    padding: 8px 16px;
+}
+
+.sidebar-shutdown-btn {
+    background-color: #C67A52;
+    color: #FAF8F4;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 16px;
+    font-weight: 500;
+    font-size: 13px;
+}
+
+.sidebar-shutdown-btn:hover {
+    background-color: #B56B45;
+}
+
+.sidebar-cancel-btn {
+    background-color: #F5F1EA;
+    color: #3A3228;
+    border: 1px solid #EBE6DC;
+    border-radius: 6px;
+    padding: 6px 16px;
+    font-weight: 500;
+    font-size: 13px;
+}
+
+.sidebar-cancel-btn:hover {
+    background-color: #EBE6DC;
+}
+
+.sidebar-toggle-btn {
+    background-color: alpha(#F5F1EA, 0.9);
+    color: #6B5D4F;
+    border: 1px solid #EBE6DC;
+    border-radius: 6px;
+    padding: 4px 8px;
+    min-width: 32px;
+    min-height: 32px;
+    -gtk-icon-size: 16px;
+    box-shadow: 0 1px 3px alpha(#3A3228, 0.08);
+}
+
+.sidebar-toggle-btn:hover {
+    background-color: #F5F1EA;
+    color: #3A3228;
+}
+
+.sidebar-scroll {
+    background-color: transparent;
+}
+
+.sidebar-scroll scrollbar {
+    background-color: transparent;
+}
+
+.sidebar-scroll scrollbar slider {
+    background-color: alpha(#A89B8C, 0.3);
+    border-radius: 99px;
+    min-width: 4px;
+    min-height: 30px;
+}
+
+.sidebar-scroll scrollbar slider:hover {
+    background-color: alpha(#A89B8C, 0.5);
+}

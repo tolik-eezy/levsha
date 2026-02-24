@@ -1,0 +1,29 @@
+{
+  "name": "edit_replace_lines",
+  "description": "Replace a range of lines in the open file with new content.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "start_line": {
+        "type": "integer",
+        "description": "First line to replace (1-indexed)"
+      },
+      "count": {
+        "type": "integer",
+        "description": "Number of lines to replace"
+      },
+      "content": {
+        "oneOf": [
+          { "type": "string" },
+          { "type": "array", "items": { "type": "string" } }
+        ],
+        "description": "Replacement line(s)"
+      }
+    },
+    "required": ["start_line", "count", "content"]
+  },
+  "execution": {
+    "type": "internal",
+    "function": "edit_replace_lines"
+  }
+}

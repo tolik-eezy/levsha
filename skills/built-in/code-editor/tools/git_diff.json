@@ -1,0 +1,24 @@
+{
+  "name": "git_diff",
+  "description": "Show git diff of changes. Use args '--cached' for staged changes.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "string",
+        "description": "Path to the git repository",
+        "default": "."
+      },
+      "args": {
+        "type": "string",
+        "description": "Additional git diff arguments (e.g. '--cached', specific files)"
+      }
+    },
+    "required": []
+  },
+  "execution": {
+    "type": "shell",
+    "command_template": "cd {{path | quote()}} && git diff {{args}}",
+    "content_type": "diff"
+  }
+}

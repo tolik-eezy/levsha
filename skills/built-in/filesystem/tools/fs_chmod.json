@@ -1,0 +1,22 @@
+{
+  "name": "fs_chmod",
+  "description": "Change file or directory permissions using octal mode (e.g. '755', '644').",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "string",
+        "description": "Path to the file or directory"
+      },
+      "mode": {
+        "type": "string",
+        "description": "Permission mode in octal format (e.g. '755', '644', '600')"
+      }
+    },
+    "required": ["path", "mode"]
+  },
+  "execution": {
+    "type": "shell",
+    "command_template": "chmod {{mode}} {{path | quote}}"
+  }
+}

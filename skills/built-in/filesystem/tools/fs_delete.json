@@ -1,0 +1,18 @@
+{
+  "name": "fs_delete",
+  "description": "Delete a file or directory. This is a DESTRUCTIVE operation — the guard system will ask for user confirmation before executing.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "string",
+        "description": "Path to the file or directory to delete"
+      }
+    },
+    "required": ["path"]
+  },
+  "execution": {
+    "type": "shell",
+    "command_template": "rm -rf {{path | quote}}"
+  }
+}

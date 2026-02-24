@@ -1,0 +1,19 @@
+[Unit]
+Description=Levsha Chat Shell Watchdog
+After=multi-user.target
+# Do not run alongside the cage kiosk session (autologin on tty1).
+# The cage session is the primary way to run levsha-chat.
+# This watchdog is a fallback for headless or non-cage setups.
+ConditionPathExists=!/run/user/1000/wayland-0
+
+[Service]
+Type=simple
+User=levsha
+ExecStart=/usr/bin/levsha-chat
+Restart=always
+RestartSec=2
+Environment=WAYLAND_DISPLAY=wayland-0
+Environment=XDG_RUNTIME_DIR=/run/user/1000
+
+[Install]
+WantedBy=multi-user.target

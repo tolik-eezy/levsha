@@ -1,0 +1,24 @@
+{
+  "name": "fs_tree",
+  "description": "Show directory structure as a tree. Useful for understanding project layout or exploring nested directories.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "string",
+        "description": "Directory path to show tree for (default: current directory)",
+        "default": "."
+      },
+      "depth": {
+        "type": "integer",
+        "description": "Maximum depth of the tree (default: 3)",
+        "default": 3
+      }
+    },
+    "required": []
+  },
+  "execution": {
+    "type": "shell",
+    "command_template": "tree -L {{depth}} {{path | quote()}}"
+  }
+}

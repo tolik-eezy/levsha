@@ -1,0 +1,23 @@
+{
+  "name": "code_search",
+  "description": "Search for a text pattern in source files using ripgrep.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "pattern": {
+        "type": "string",
+        "description": "Search pattern (supports regex)"
+      },
+      "path": {
+        "type": "string",
+        "description": "Directory to search in",
+        "default": "."
+      }
+    },
+    "required": ["pattern"]
+  },
+  "execution": {
+    "type": "shell",
+    "command_template": "rg --line-number --color never {{pattern | quote()}} {{path | quote()}}"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "git_status",
+  "description": "Show the current git branch and changed files.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "string",
+        "description": "Path to the git repository",
+        "default": "."
+      }
+    },
+    "required": []
+  },
+  "execution": {
+    "type": "shell",
+    "command_template": "cd {{path | quote()}} && git status --short --branch"
+  }
+}

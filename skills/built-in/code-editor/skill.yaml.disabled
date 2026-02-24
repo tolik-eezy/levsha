@@ -1,0 +1,33 @@
+name: code-editor
+version: 0.1.0
+description: "Code development workflow: project navigation, search, build, test, and git"
+author: levsha
+builtin: true
+
+prompt: prompts/code-editor.md
+
+tools:
+  - tools/code_open_project.json
+  - tools/code_tree.json
+  - tools/code_search.json
+  - tools/code_find_def.json
+  - tools/code_find_refs.json
+  - tools/code_build.json
+  - tools/code_run.json
+  - tools/code_test.json
+  - tools/git_status.json
+  - tools/git_diff.json
+  - tools/git_add.json
+  - tools/git_commit.json
+  - tools/git_log.json
+  - tools/git_branch.json
+  - tools/git_push.json
+  - tools/git_pull.json
+
+requires:
+  packages:
+    - git
+    - ripgrep
+    - tree
+
+assets: []

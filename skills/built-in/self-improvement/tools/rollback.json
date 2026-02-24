@@ -1,0 +1,18 @@
+{
+  "name": "rollback",
+  "description": "Revert a component to its previous version by restoring from a checkpoint. If no checkpoint_id is specified, reverts to the most recent checkpoint. The rollback restores the previous binary and restarts the service.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "checkpoint_id": {
+        "type": "string",
+        "description": "The ID of the checkpoint to restore. If omitted, restores the most recent checkpoint."
+      }
+    },
+    "required": []
+  },
+  "execution": {
+    "type": "internal",
+    "function": "rollback"
+  }
+}

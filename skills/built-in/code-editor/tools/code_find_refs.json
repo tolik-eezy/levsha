@@ -1,0 +1,23 @@
+{
+  "name": "code_find_refs",
+  "description": "Find all references to a symbol in the project.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "symbol": {
+        "type": "string",
+        "description": "Symbol name to find references of"
+      },
+      "path": {
+        "type": "string",
+        "description": "Directory to search in",
+        "default": "."
+      }
+    },
+    "required": ["symbol"]
+  },
+  "execution": {
+    "type": "shell",
+    "command_template": "rg --line-number --color never '\\b{{symbol}}\\b' {{path | quote()}}"
+  }
+}

@@ -1,0 +1,21 @@
+name: skill-manager
+version: 0.1.0
+description: "Install, remove, update, and manage Levsha OS skills from the skill registry"
+author: levsha
+builtin: true
+
+prompt: prompts/skill-manager.md
+
+tools:
+  - tools/skill_install.json
+  - tools/skill_remove.json
+  - tools/skill_list.json
+  - tools/skill_search.json
+  - tools/skill_update.json
+  - tools/skill_info.json
+
+requires:
+  packages:
+    - git
+
+assets: []

@@ -1,0 +1,21 @@
+{
+  "name": "edit_append",
+  "description": "Append one or more lines to the end of the open file.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "content": {
+        "oneOf": [
+          { "type": "string" },
+          { "type": "array", "items": { "type": "string" } }
+        ],
+        "description": "Line(s) to append"
+      }
+    },
+    "required": ["content"]
+  },
+  "execution": {
+    "type": "internal",
+    "function": "edit_append"
+  }
+}

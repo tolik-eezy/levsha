@@ -1,0 +1,31 @@
+name: filesystem
+version: 0.1.0
+description: "Browse, read, write, and manage files and directories"
+author: levsha
+builtin: true
+
+prompt: prompts/filesystem.md
+
+tools:
+  - tools/fs_list.json
+  - tools/fs_tree.json
+  - tools/fs_find.json
+  - tools/fs_size.json
+  - tools/fs_copy.json
+  - tools/fs_move.json
+  - tools/fs_delete.json
+  - tools/fs_mkdir.json
+  - tools/fs_chmod.json
+  - tools/fs_read.json
+  - tools/fs_head.json
+  - tools/fs_tail.json
+  - tools/fs_write.json
+  - tools/fs_append.json
+  - tools/fs_replace.json
+
+requires:
+  packages:
+    - tree
+    - coreutils
+
+assets: []

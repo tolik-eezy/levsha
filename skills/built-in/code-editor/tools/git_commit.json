@@ -1,0 +1,23 @@
+{
+  "name": "git_commit",
+  "description": "Create a git commit with a message.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "string",
+        "description": "Path to the git repository",
+        "default": "."
+      },
+      "message": {
+        "type": "string",
+        "description": "Commit message"
+      }
+    },
+    "required": ["message"]
+  },
+  "execution": {
+    "type": "shell",
+    "command_template": "cd {{path | quote()}} && git commit -m {{message | quote()}}"
+  }
+}

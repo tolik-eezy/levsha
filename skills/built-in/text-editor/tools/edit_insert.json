@@ -1,0 +1,25 @@
+{
+  "name": "edit_insert",
+  "description": "Insert one or more lines at a specific position in the open file.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "line": {
+        "type": "integer",
+        "description": "Line number to insert before (1-indexed)"
+      },
+      "content": {
+        "oneOf": [
+          { "type": "string" },
+          { "type": "array", "items": { "type": "string" } }
+        ],
+        "description": "Line(s) to insert"
+      }
+    },
+    "required": ["line", "content"]
+  },
+  "execution": {
+    "type": "internal",
+    "function": "edit_insert"
+  }
+}

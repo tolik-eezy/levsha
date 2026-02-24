@@ -1,0 +1,19 @@
+{
+  "name": "package_update",
+  "description": "Update system packages using dnf. Can update specific packages by name, or update all packages if no names are given. Use when the user asks to update, upgrade, or patch packages.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "packages": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "List of package names to update. If empty or omitted, all packages are updated."
+      }
+    },
+    "required": []
+  },
+  "execution": {
+    "type": "shell",
+    "command_template": "sudo dnf update -y {{packages | join(' ')}}"
+  }
+}

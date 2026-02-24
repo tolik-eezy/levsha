@@ -1,0 +1,13 @@
+{
+  "name": "net_ports",
+  "description": "Show listening ports and associated processes.",
+  "input_schema": {
+    "type": "object",
+    "properties": {},
+    "required": []
+  },
+  "execution": {
+    "type": "shell",
+    "command_template": "ss -tulnp"
+  }
+}

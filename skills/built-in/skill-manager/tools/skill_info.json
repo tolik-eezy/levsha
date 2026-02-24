@@ -1,0 +1,18 @@
+{
+  "name": "skill_info",
+  "description": "Get detailed information about an installed skill including version, tools, and description.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "description": "Name of the skill to get info about"
+      }
+    },
+    "required": ["name"]
+  },
+  "execution": {
+    "type": "internal",
+    "function": "skill_info"
+  }
+}

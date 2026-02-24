@@ -1,0 +1,1 @@
+levsha ALL=(ALL) NOPASSWD: /usr/bin/cp, /usr/bin/chmod, /usr/bin/pkill

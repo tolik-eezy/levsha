@@ -1,0 +1,23 @@
+{
+  "name": "code_find_def",
+  "description": "Find where a symbol is defined (struct, fn, class, def, const, type, etc.).",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "symbol": {
+        "type": "string",
+        "description": "Symbol name to find the definition of"
+      },
+      "path": {
+        "type": "string",
+        "description": "Directory to search in",
+        "default": "."
+      }
+    },
+    "required": ["symbol"]
+  },
+  "execution": {
+    "type": "shell",
+    "command_template": "rg --line-number --color never '(struct|fn|class|def|function|const|type|interface|enum|trait|impl)\\s+{{symbol}}' {{path | quote()}}"
+  }
+}

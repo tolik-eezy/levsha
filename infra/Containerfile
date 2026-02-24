@@ -1,0 +1,38 @@
+# Levsha OS Build Container
+# Fedora-based container with Rust toolchain, GTK4/libadwaita dev packages,
+# and ISO build tools (lorax, pykickstart, livecd-tools).
+#
+# Usage:
+#   podman build -t levsha-builder -f infra/Containerfile .
+#   podman run --rm -v .:/build:z levsha-builder cargo build --release
+
+FROM fedora:41
+
+# Rust toolchain and build essentials
+RUN dnf install -y \
+    rust \
+    cargo \
+    gcc \
+    pkg-config \
+    openssl-devel \
+    perl-FindBin \
+    && dnf clean all
+
+# GTK4 / libadwaita development packages (required to compile chat-shell)
+RUN dnf install -y \
+    gtk4-devel \
+    libadwaita-devel \
+    pango-devel \
+    cairo-devel \
+    gdk-pixbuf2-devel \
+    graphene-devel \
+    && dnf clean all
+
+# ISO build tools
+RUN dnf install -y \
+    lorax \
+    pykickstart \
+    livecd-tools \
+    && dnf clean all
+
+WORKDIR /build

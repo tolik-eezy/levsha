@@ -1,0 +1,13 @@
+{
+  "name": "sys_network",
+  "description": "Show network interface status and IP addresses. Use when the user asks about connectivity, IP addresses, or network status.",
+  "input_schema": {
+    "type": "object",
+    "properties": {},
+    "required": []
+  },
+  "execution": {
+    "type": "shell",
+    "command_template": "ip -br addr && echo '---' && nmcli general status"
+  }
+}

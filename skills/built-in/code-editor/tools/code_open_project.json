@@ -1,0 +1,19 @@
+{
+  "name": "code_open_project",
+  "description": "Open a code project and detect its type (Rust, Node.js, Python, Go, Make, etc.).",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "string",
+        "description": "Path to the project directory",
+        "default": "."
+      }
+    },
+    "required": []
+  },
+  "execution": {
+    "type": "shell",
+    "command_template": "echo \"=== Project: {{path}} ===\" && ls -la {{path | quote()}} && echo '---' && ([ -f {{path | quote()}}/Cargo.toml ] && echo \"Type: Rust (Cargo)\" || [ -f {{path | quote()}}/package.json ] && echo \"Type: Node.js\" || [ -f {{path | quote()}}/Makefile ] && echo \"Type: Make\" || [ -f {{path | quote()}}/setup.py ] && echo \"Type: Python\" || [ -f {{path | quote()}}/go.mod ] && echo \"Type: Go\" || echo \"Type: Unknown\") && echo '---' && tree -L 2 -I 'target|node_modules|.git|__pycache__|dist|build' {{path | quote()}}"
+  }
+}

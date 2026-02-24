@@ -1,0 +1,22 @@
+# Levsha OS — Release ISO Builder
+# Fedora container with lorax (mkksiso) for creating installable ISOs.
+#
+# mkksiso takes a Fedora netinstall ISO, embeds our kickstart + staging tarball,
+# and produces a self-installing ISO that auto-configures Levsha OS.
+#
+# Usage:
+#   podman build -t levsha-release -f infra/Containerfile.release .
+#   podman run --rm -v .:/build:z levsha-release \
+#     mkksiso --ks /build/base/kickstart/levsha-os.ks \
+#             -a /build/staging.tar.gz \
+#             /build/vendor/fedora/Fedora-Server-netinst.iso \
+#             /output/Levsha-OS-0.1.0.iso
+
+FROM fedora:41
+
+RUN dnf install -y \
+    lorax \
+    pykickstart \
+    && dnf clean all
+
+WORKDIR /build

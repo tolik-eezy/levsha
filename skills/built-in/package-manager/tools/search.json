@@ -1,0 +1,23 @@
+{
+  "name": "package_search",
+  "description": "Search for available packages by name or keyword. Use when the user is looking for a package but doesn't know the exact name, or wants to see what's available for a given purpose.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "query": {
+        "type": "string",
+        "description": "Search query for package names and descriptions."
+      },
+      "limit": {
+        "type": "integer",
+        "description": "Maximum number of results to return.",
+        "default": 20
+      }
+    },
+    "required": ["query"]
+  },
+  "execution": {
+    "type": "shell",
+    "command_template": "dnf search {{query | quote}} | head -n {{limit}}"
+  }
+}

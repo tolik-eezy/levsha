@@ -1,0 +1,23 @@
+{
+  "name": "net_dns_lookup",
+  "description": "Look up DNS records for a domain.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "domain": {
+        "type": "string",
+        "description": "Domain name to look up"
+      },
+      "record_type": {
+        "type": "string",
+        "description": "DNS record type (A, AAAA, MX, CNAME, TXT, NS, etc.)",
+        "default": "A"
+      }
+    },
+    "required": ["domain"]
+  },
+  "execution": {
+    "type": "shell",
+    "command_template": "dig {{domain | quote()}} {{record_type | quote()}}"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "edit_close",
+  "description": "Close the currently open file in the text editor.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "force": {
+        "type": "boolean",
+        "description": "Close even if there are unsaved changes",
+        "default": false
+      }
+    },
+    "required": []
+  },
+  "execution": {
+    "type": "internal",
+    "function": "edit_close"
+  }
+}

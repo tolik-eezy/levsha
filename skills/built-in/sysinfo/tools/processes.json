@@ -1,0 +1,25 @@
+{
+  "name": "sys_processes",
+  "description": "Show top running processes sorted by resource usage. Use when the user asks about running processes, what's consuming CPU or memory, or what's running on the system.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "count": {
+        "type": "integer",
+        "description": "Number of top processes to show.",
+        "default": 15
+      },
+      "sort_by": {
+        "type": "string",
+        "description": "Sort processes by resource type: 'cpu' for CPU usage, 'memory' for memory usage.",
+        "enum": ["cpu", "memory"],
+        "default": "cpu"
+      }
+    },
+    "required": []
+  },
+  "execution": {
+    "type": "shell",
+    "command_template": "ps aux --sort=-{{sort_by}} | head -n {{count}}"
+  }
+}

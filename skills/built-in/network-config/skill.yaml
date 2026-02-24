@@ -1,0 +1,32 @@
+name: network-config
+version: 0.1.0
+description: "Manage Wi-Fi, network interfaces, IP configuration, and diagnostics"
+author: levsha
+builtin: true
+
+prompt: prompts/network-config.md
+
+tools:
+  - tools/wifi_scan.json
+  - tools/wifi_connect.json
+  - tools/wifi_disconnect.json
+  - tools/wifi_forget.json
+  - tools/wifi_saved.json
+  - tools/net_interfaces.json
+  - tools/net_static_ip.json
+  - tools/net_dhcp.json
+  - tools/net_dns.json
+  - tools/net_ping.json
+  - tools/net_traceroute.json
+  - tools/net_dns_lookup.json
+  - tools/net_ports.json
+
+requires:
+  packages:
+    - NetworkManager
+    - iproute
+    - iputils
+    - traceroute
+    - bind-utils
+
+assets: []

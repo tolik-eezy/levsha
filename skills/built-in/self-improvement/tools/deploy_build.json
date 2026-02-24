@@ -1,0 +1,19 @@
+{
+  "name": "deploy_build",
+  "description": "After the coding agent finishes editing source code, use this tool to build, test, checkpoint, and deploy the changes. This tool: (1) commits all changes to git, (2) runs cargo build --release, (3) runs cargo test, (4) creates a checkpoint of current binaries, (5) shows the diff to the user, (6) asks for confirmation, (7) deploys and restarts the component. Requires user confirmation before deployment.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "component": {
+        "type": "string",
+        "enum": ["chat-shell", "engine", "full"],
+        "description": "Which component to build and deploy."
+      }
+    },
+    "required": ["component"]
+  },
+  "execution": {
+    "type": "internal",
+    "function": "deploy_build"
+  }
+}

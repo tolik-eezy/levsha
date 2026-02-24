@@ -1,0 +1,19 @@
+{
+  "name": "package_list",
+  "description": "List packages by filter: installed, available, or those with updates. Use when the user asks what's installed, what's available, or what can be updated.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "filter": {
+        "type": "string",
+        "description": "Filter for the package list. One of: 'installed' (show installed packages), 'available' (show packages available to install), 'updates' (show packages with available updates).",
+        "enum": ["installed", "available", "updates"]
+      }
+    },
+    "required": []
+  },
+  "execution": {
+    "type": "shell",
+    "command_template": "dnf list {{filter}}"
+  }
+}

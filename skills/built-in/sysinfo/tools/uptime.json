@@ -1,0 +1,13 @@
+{
+  "name": "sys_uptime",
+  "description": "Show system uptime and load averages. Use when the user asks how long the system has been running, or about system load and busyness.",
+  "input_schema": {
+    "type": "object",
+    "properties": {},
+    "required": []
+  },
+  "execution": {
+    "type": "shell",
+    "command_template": "uptime"
+  }
+}

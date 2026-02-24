@@ -1,0 +1,24 @@
+{
+  "name": "git_log",
+  "description": "Show git commit history as a graph.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "string",
+        "description": "Path to the git repository",
+        "default": "."
+      },
+      "count": {
+        "type": "integer",
+        "description": "Number of commits to show",
+        "default": 10
+      }
+    },
+    "required": []
+  },
+  "execution": {
+    "type": "shell",
+    "command_template": "cd {{path | quote()}} && git log --oneline --graph -n {{count}}"
+  }
+}

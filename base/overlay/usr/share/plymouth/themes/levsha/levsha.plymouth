@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=Levsha OS
+Description=Minimal warm boot splash for Levsha OS
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/levsha
+ScriptFile=/usr/share/plymouth/themes/levsha/levsha.script

@@ -1,0 +1,23 @@
+{
+  "name": "self_improve",
+  "description": "Spawn an external coding agent (Claude Code or OpenCode) to investigate and modify the OS source code. The agent works autonomously in /usr/src/levsha/, reading, searching, editing files, and running tests. Its progress streams in real-time to the split-view panel. Use this tool when the user requests a code change, bug fix, UI modification, or any source-level improvement.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "prompt": {
+        "type": "string",
+        "description": "A detailed description of the change to make. Include the user's original request and any relevant context about which component to modify (chat-shell, engine, skills, config)."
+      },
+      "target_component": {
+        "type": "string",
+        "enum": ["chat-shell", "engine", "skills", "config", "auto"],
+        "description": "Which component the change primarily targets. Use 'auto' to let the agent determine the scope. Default: auto."
+      }
+    },
+    "required": ["prompt"]
+  },
+  "execution": {
+    "type": "internal",
+    "function": "self_improve"
+  }
+}

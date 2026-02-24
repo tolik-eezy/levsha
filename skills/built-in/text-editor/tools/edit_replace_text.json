@@ -1,0 +1,22 @@
+{
+  "name": "edit_replace_text",
+  "description": "Find and replace all occurrences of a string in the open file.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "find": {
+        "type": "string",
+        "description": "Text to find"
+      },
+      "replace": {
+        "type": "string",
+        "description": "Text to replace with"
+      }
+    },
+    "required": ["find", "replace"]
+  },
+  "execution": {
+    "type": "internal",
+    "function": "edit_replace_text"
+  }
+}
