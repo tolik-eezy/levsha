@@ -1,3 +1,7 @@
+<picture>
+  <img src="https://levsha.ai/hero-image.png" alt="Levsha OS — The Chat Is the Computer" />
+</picture>
+
 # Levsha OS
 
 **The Chat Is the Computer.**
