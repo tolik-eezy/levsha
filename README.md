@@ -6,6 +6,8 @@ A minimal Linux distribution where the entire user interface is a single, beauti
 
 Built on Fedora, powered by Claude.
 
+[levsha.ai](https://levsha.ai) | [𝕏 @levsha_ai](https://x.com/levsha_ai)
+
 ## Quick Start
 
 ```bash
